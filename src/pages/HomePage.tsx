@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from "react";
 import { ArrowRight, CalendarDays, Gift, Heart, Search, Sparkles, UserRound, UsersRound, WalletCards } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { ExperienceCard } from "../components/ExperienceCard";
@@ -24,6 +25,13 @@ const categories = [
 
 export function HomePage() {
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
+  function submitSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const query = search.trim();
+    navigate(query ? `/experiences?search=${encodeURIComponent(query)}` : "/experiences");
+  }
 
   return (
     <>
@@ -42,7 +50,7 @@ export function HomePage() {
             </div>
             <div className="relative lg:-mr-24">
               <div className="soft-shadow aspect-[5/4] overflow-hidden rounded-[2rem_2rem_2rem_5rem] bg-[#dccdb9]">
-                <img src="/images/pottery-workshop.png" alt="Beginners enjoying a pottery workshop with Cape Town mountain views" className="h-full w-full object-cover object-center" />
+                <img src="/images/experiences/beginner-pottery-workshop.webp" alt="A maker shaping clay at a pottery wheel" className="h-full w-full object-cover object-center" />
               </div>
               <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-xl sm:left-[-1.5rem] sm:bottom-8">
                 <span className="grid size-10 place-items-center rounded-xl bg-[#d8e7e0] text-[#20352d]"><Sparkles size={18} /></span>
@@ -51,10 +59,10 @@ export function HomePage() {
             </div>
           </div>
           <div className="page-shell mt-14">
-            <div className="card-shadow flex flex-col gap-3 rounded-2xl bg-white p-3 sm:flex-row sm:items-center sm:rounded-full sm:pl-5">
-              <div className="flex flex-1 items-center gap-3 px-2"><Search size={20} className="text-[#c85a3c]" /><span className="text-sm text-[#68736f]">What would you like to try?</span></div>
-              <button onClick={() => navigate("/experiences")} className="rounded-full bg-[#20352d] px-6 py-3.5 font-semibold text-white transition hover:bg-[#c85a3c]">Show me ideas</button>
-            </div>
+            <form onSubmit={submitSearch} className="card-shadow flex flex-col gap-3 rounded-2xl bg-white p-3 sm:flex-row sm:items-center sm:rounded-full sm:pl-5">
+              <div className="flex flex-1 items-center gap-3 px-2"><Search size={20} className="shrink-0 text-[#c85a3c]" /><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="What would you like to try?" aria-label="Search experiences by name, category, or keyword" className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-[#68736f] focus-visible:ring-2 focus-visible:ring-[#20352d]/30" /></div>
+              <button type="submit" className="rounded-full bg-[#20352d] px-6 py-3.5 font-semibold text-white transition hover:bg-[#c85a3c]">Show me ideas</button>
+            </form>
           </div>
         </section>
 

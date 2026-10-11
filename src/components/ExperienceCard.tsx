@@ -8,7 +8,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
     <Link to={`/experiences/${experience.id}`} className="group block min-w-0">
       <article>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem] bg-[#e7ddcf]">
-          <img src={experience.image} alt={`Placeholder image for ${experience.title}`} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]" style={{ objectPosition: experience.imagePosition }} />
+          <img src={experience.image} alt={`${experience.title} experience`} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]" style={{ objectPosition: experience.imagePosition }} />
           <span className="absolute left-4 top-4 rounded-full bg-[#fbf8f2]/95 px-3 py-1.5 text-xs font-semibold text-[#20352d]">{experience.category}</span>
           <span className="absolute bottom-4 right-4 grid size-10 place-items-center rounded-full bg-white text-[#20352d] opacity-0 transition group-hover:opacity-100"><ArrowUpRight size={18} /></span>
         </div>

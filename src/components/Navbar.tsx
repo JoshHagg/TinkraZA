@@ -14,7 +14,6 @@ export function Navbar() {
         <nav className="hidden items-center gap-8 text-[15px] font-medium md:flex" aria-label="Main navigation">
           <Link className="transition-colors hover:text-[#c85a3c]" to="/experiences">Experiences</Link>
           <Link className="transition-colors hover:text-[#c85a3c]" to="/providers">For providers</Link>
-          <Link className="rounded-full bg-[#20352d] px-5 py-3 text-white transition hover:bg-[#c85a3c]" to="/experiences">Find something to try</Link>
         </nav>
         <button onClick={() => setOpen((value) => !value)} className="grid size-11 place-items-center rounded-full border border-[#20352d]/15 md:hidden" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>{open ? <X size={20} /> : <Menu size={20} />}</button>
       </div>

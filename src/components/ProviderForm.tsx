@@ -21,7 +21,7 @@ export function ProviderForm() {
 
     const name = form.name.trim();
     const businessName = form.businessName.trim();
-    const email = form.email.trim();
+    const email = form.email.trim().toLowerCase();
     const website = form.website.trim();
     const category = form.category.trim();
     const description = form.description.trim();
@@ -53,6 +53,11 @@ export function ProviderForm() {
     try {
       const { error: insertError } = await supabase.from("provider_interests").insert(providerInterest);
       if (insertError) {
+        if (insertError.code === "23505" && insertError.message.includes("provider_interests_normalized_email_uidx")) {
+          setError("You're already registered!");
+          return;
+        }
+
         console.error("Provider interest submission failed", insertError);
         setError("We couldn’t save your interest right now. Please try again.");
         return;
