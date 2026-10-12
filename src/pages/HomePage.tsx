@@ -77,7 +77,7 @@ export function HomePage() {
 
         <section className="pb-24">
           <div className="page-shell">
-            <div className="mb-9 flex items-end justify-between gap-4"><div><p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-[#c85a3c]">Worth leaving the house for</p><h2 className="display-font text-4xl tracking-[-0.04em] sm:text-5xl">Popular experiences</h2></div><Link className="hidden items-center gap-2 font-semibold sm:flex" to="/experiences">View all <ArrowRight size={17} /></Link></div>
+            <div className="mb-9 flex items-end justify-between gap-4"><div><p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-[#c85a3c]">Worth leaving the house for</p><h2 className="display-font text-4xl tracking-[-0.04em] sm:text-5xl">Popular experiences</h2><p className="mt-2 text-sm text-[#6a756f]">Featured workshops are illustrative examples of experiences we hope to offer.</p></div><Link className="hidden items-center gap-2 font-semibold sm:flex" to="/experiences">View all <ArrowRight size={17} /></Link></div>
             <div className="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">{experiences.filter((item) => item.featured).map((experience) => <ExperienceCard key={experience.id} experience={experience} />)}</div>
           </div>
         </section>

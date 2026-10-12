@@ -7,9 +7,9 @@ export function Navbar() {
   return (
     <header className="relative z-40 border-b border-[#20352d]/10 bg-[#fbf8f2]/95 backdrop-blur">
       <div className="page-shell flex h-20 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 font-semibold tracking-[-0.02em]" aria-label="Cape Town Makers home">
+        <Link to="/" className="flex items-center gap-2.5 font-semibold tracking-[-0.02em]" aria-label="TinkraZA home">
           <span className="grid size-9 place-items-center rounded-full bg-[#c85a3c] text-white"><Sparkles size={17} /></span>
-          <span>Cape Town Makers</span>
+          <span>TinkraZA</span>
         </Link>
         <nav className="hidden items-center gap-8 text-[15px] font-medium md:flex" aria-label="Main navigation">
           <Link className="transition-colors hover:text-[#c85a3c]" to="/experiences">Experiences</Link>

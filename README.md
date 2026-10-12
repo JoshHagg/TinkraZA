@@ -1,4 +1,4 @@
-# Cape Town Makers
+# TinkraZA
 
 A validation MVP for discovering beginner-friendly, hands-on experiences in Cape Town.
 
