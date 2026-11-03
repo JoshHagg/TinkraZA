@@ -24,7 +24,7 @@ The catalogue is illustrative: providers and availability have not been confirme
 - **Frontend:** React 19, TypeScript and Vite
 - **Routing:** React Router
 - **Styling and UI:** Tailwind CSS 4, Radix UI and Lucide icons
-- **Backend:** Supabase (PostgreSQL) using \`@supabase/supabase-js\`
+- **Backend:** Supabase (PostgreSQL) using `@supabase/supabase-js`
 - **Deployment and analytics:** Vercel, with Vercel Web Analytics configured
 
 Experience catalogue content is currently maintained in the frontend. Supabase stores customer waitlist signups and provider interest submissions. A database migration normalises provider email addresses and enforces uniqueness.
@@ -35,39 +35,39 @@ Experience catalogue content is currently maintained in the frontend. Supabase s
 
 - Node.js 22.13 or newer
 - npm
-- A Supabase project with the tables used by the app: \`waitlist_signups\` and \`provider_interests\`
+- A Supabase project with the tables used by the app: `waitlist_signups` and `provider_interests`
 
 ### Setup
 
 Clone the repository and install its dependencies:
 
-\`\`\`bash
+```bash
 git clone https://github.com/JoshHagg/TinkraZA.git
 cd TinkraZA
 npm install
-\`\`\`
+```
 
-Create a \`.env.local\` file in the project root and add your Supabase project URL and publishable key:
+Create a `.env.local` file in the project root and add your Supabase project URL and publishable key:
 
-\`\`\`env
+```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
-\`\`\`
+```
 
 Start the development server:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 Vite serves the app at [http://localhost:5173](http://localhost:5173).
 
 ### Available scripts
 
-- \`npm run dev\` — start the local development server
-- \`npm run build\` — type-check and build the production bundle
-- \`npm run start\` — preview the production build locally
-- \`npm run test:smoke\` — run smoke checks for catalogue search and filters, and local storage helpers
+- `npm run dev` — start the local development server
+- `npm run build` — type-check and build the production bundle
+- `npm run start` — preview the production build locally
+- `npm run test:smoke` — run smoke checks for catalogue search and filters, and local storage helpers
 
 ## Project status
 
