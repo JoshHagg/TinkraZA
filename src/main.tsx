@@ -1,6 +1,7 @@
 import { StrictMode, useLayoutEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes,useLocation } from "react-router-dom";
+import { inject } from "@vercel/analytics";
 import { AppNotice } from "./components/AppNotice";
 import { ExperienceDetailPage } from "./pages/ExperienceDetailPage";
 import { ExperiencesPage } from "./pages/ExperiencesPage";
@@ -32,6 +33,7 @@ function App() {
         <Route path="*" element={<ExperiencesPage />} />
       </Routes>
       <AppNotice />
+      <Analytics />
     </BrowserRouter>
   );
 }
