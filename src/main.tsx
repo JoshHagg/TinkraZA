@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { inject } from "@vercel/analytics";
+import { Analytics } from "@vercel/analytics/react";
 import { AppNotice } from "./components/AppNotice";
 import { ExperienceDetailPage } from "./pages/ExperienceDetailPage";
 import { ExperiencesPage } from "./pages/ExperiencesPage";
@@ -9,8 +9,6 @@ import { HomePage } from "./pages/HomePage";
 import { ProvidersPage } from "./pages/ProvidersPage";
 import { useWebMcp } from "./hooks/useWebMcp";
 import "./index.css";
-
-inject();
 
 function App() {
   useWebMcp();
@@ -24,6 +22,7 @@ function App() {
         <Route path="*" element={<ExperiencesPage />} />
       </Routes>
       <AppNotice />
+      <Analytics />
     </BrowserRouter>
   );
 }
