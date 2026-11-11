@@ -1,6 +1,6 @@
-import { StrictMode } from "react";
+import { StrictMode, useLayoutEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { AppNotice } from "./components/AppNotice";
 import { ExperienceDetailPage } from "./pages/ExperienceDetailPage";
 import { ExperiencesPage } from "./pages/ExperiencesPage";
@@ -9,10 +9,21 @@ import { ProvidersPage } from "./pages/ProvidersPage";
 import { useWebMcp } from "./hooks/useWebMcp";
 import "./index.css";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   useWebMcp();
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/experiences" element={<ExperiencesPage />} />
